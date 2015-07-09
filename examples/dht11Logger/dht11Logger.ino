@@ -6,6 +6,8 @@ http://arduino-direct.com/sunshop/index.php?l=product_detail&p=162
 terry@yourduino.com
 
 Modified: Yanc
+
+Download the dht11 library from https://github.com/AprilBrother/Arduino-Libraries/tree/master/DHT11
 */
 
 /*-----( Import needed libraries )-----*/
