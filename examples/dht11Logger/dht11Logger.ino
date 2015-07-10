@@ -7,6 +7,8 @@ terry@yourduino.com
 
 Modified: Yanc
 
+See http://www.instructables.com/id/Arduino-BLE-TemperatureHumidity-logger-with-DHT11-/
+
 Download the dht11 library from https://github.com/AprilBrother/Arduino-Libraries/tree/master/DHT11
 */
 
