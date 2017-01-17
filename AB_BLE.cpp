@@ -21,12 +21,34 @@ void AB_BLE::println(const char data[]) {
     stream->println(data);
 }
 
+void AB_BLE::println(const __FlashStringHelper *data) {
+    stream->println(data);
+}
+
 size_t AB_BLE::println(int n, int base) {
     stream->println(n, base);
 }
 
 int AB_BLE::read() {
-    delay(10);	
     return stream->read();
+}
+
+bool AB_BLE::waitOk(void) {
+    String resp = stream->readStringUntil('\n');
+    if (resp.startsWith("OK")) {
+        return 1;
+    }
+    strcpy(buffer, resp.c_str());
+    return 0;
+}
+
+bool AB_BLE::at(const __FlashStringHelper *cmd) {
+    println(cmd);
+    return waitOk();
+}
+
+bool AB_BLE::at(const char cmd[]) {
+    println(cmd);
+    return waitOk();
 }
 
