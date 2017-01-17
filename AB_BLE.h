@@ -7,6 +7,9 @@
 
 class AB_BLE : public Print {
 
+    protected:
+        bool     _verbose;
+
     private:
         Stream    *stream;     // -> BLE module, e.g. SoftwareSerial or Serial1
 
@@ -20,6 +23,8 @@ class AB_BLE : public Print {
         void writeBytes(unsigned char *data, unsigned char len);
         void println(const char data[]);
         void println(const __FlashStringHelper *data);
+
+        void verbose(bool enable) { _verbose = enable; }
 
         int available();
         int read();

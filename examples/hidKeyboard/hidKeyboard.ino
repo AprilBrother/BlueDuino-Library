@@ -7,7 +7,6 @@ AB_BLE ble(&Serial1);
 void setup() {
   Serial.begin(BAUD_RATE);
   Serial1.begin(BAUD_RATE);
-  Serial1.setTimeout(2000);
 
   while(!Serial) {
     //
@@ -21,6 +20,8 @@ void setup() {
 
   Serial.println();
   Serial.println(F("Enter the character(s) to send:"));
+
+  ble.verbose(true);
 }
 
 void loop(void)

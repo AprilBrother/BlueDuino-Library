@@ -34,12 +34,20 @@ int AB_BLE::read() {
 }
 
 bool AB_BLE::waitOk(void) {
+    bool ret = false;
+    if (_verbose) {
+        Serial.print( F("\n<- ") );
+    }
+
     String resp = stream->readStringUntil('\n');
     if (resp.startsWith("OK")) {
-        return 1;
+        ret = true;
     }
     strcpy(buffer, resp.c_str());
-    return 0;
+    if (_verbose && resp.length()) {
+        Serial.println(buffer);
+    }
+    return ret;
 }
 
 bool AB_BLE::at(const __FlashStringHelper *cmd) {
