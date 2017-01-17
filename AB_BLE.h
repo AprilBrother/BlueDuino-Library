@@ -24,13 +24,13 @@ class AB_BLE : public Print {
         int available();
         int read();
 
-        // Class Print virtual function Interface
-        virtual size_t write(uint8_t c);
-        virtual size_t println(int, int = DEC);
-
         bool waitOk(void);
         bool sendCmdUntilOk(const __FlashStringHelper *cmd) { return this->at(cmd); }
         bool sendCmdUntilOk(const char cmd[]) { return this->at(cmd); }
+
+        // Class Print virtual function Interface
+        virtual size_t write(uint8_t c);
+        virtual size_t println(int, int = DEC);
 
         // pull in write(str) and write(buf, size) from Print
         using Print::write;
