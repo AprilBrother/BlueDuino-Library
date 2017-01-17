@@ -8,6 +8,10 @@ void setup() {
   Serial.begin(BAUD_RATE);
   Serial1.begin(BAUD_RATE);
 
+  while(!Serial) {
+    //
+  }
+
   Serial.println(F("ZeroKeyboard Example"));
   Serial.println(F("---------------------------------------"));
 }

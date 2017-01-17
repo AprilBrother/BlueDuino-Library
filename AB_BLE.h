@@ -17,6 +17,8 @@ class AB_BLE : public Print {
         virtual size_t write(uint8_t c);
         virtual size_t println(int, int = DEC);
 
+        bool sendCmdUntilOk(const __FlashStringHelper *cmd);
+        bool sendCmdUntilOk(const char cmd[]);
 
         // pull in write(str) and write(buf, size) from Print
         using Print::write;
